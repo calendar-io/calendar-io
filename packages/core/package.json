@@ -1,0 +1,38 @@
+{
+  "name": "@calendar-io/core",
+  "version": "0.4.15",
+  "type": "module",
+  "description": "Calendar IO Javascript core module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "tsconfig.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --composite false",
+    "test": "nx jest:test --coverage",
+    "lint": "eslint ./src --fix"
+  },
+  "jest-junit": {
+    "outputDirectory": "./test-results/unit/",
+    "outputName": "report.xml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/calendar-io/calendar-io.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/calendar-io/calendar-io/issues"
+  },
+  "homepage": "https://github.com/calendar-io/calendar-io/packages/core#readme",
+  "author": "Ruomh",
+  "license": "MIT"
+}

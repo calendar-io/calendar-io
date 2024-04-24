@@ -1,0 +1,40 @@
+name: Publish package
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  publish:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js v21
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          registry-url: "https://registry.npmjs.org"
+      
+      - name: Install node, npm, and dependencies
+        uses: ./.github/actions/install
+
+      - name: Run Build
+        run: npm run build
+        shell: bash
+
+      - name: Publish packages to NPM
+        run: npm run publish
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true

@@ -1,0 +1,59 @@
+{
+  "name": "calendar-io",
+  "volta": {
+    "node": "21.6.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "nx run-many -t build",
+    "test": "nx run-many -t test",
+    "lint": "nx run-many -t lint",
+    "graph": "nx graph",
+    "release": "node ./scripts/release.js",
+    "publish": "node ./scripts/publish.js",
+    "mock:release": "node ./scripts/release.js --dry-run=true",
+    "mock:publish": "node ./scripts/publish.js --dry-run=true"
+  },
+  "keywords": [
+    "calendar-io",
+    "calendar",
+    "javascript",
+    "typescript",
+    "utilities",
+    "calendar",
+    "utilities"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@jest/globals": "^29.7.0",
+    "@nx/eslint": "^18.3.3",
+    "@nx/jest": "^18.3.3",
+    "@swc-node/register": "^1.9.0",
+    "@swc/core": "^1.4.16",
+    "@tsconfig/node21": "^21.0.3",
+    "@types/jest": "^29.5.12",
+    "eslint": "^8.57.0",
+    "globals": "^15.0.0",
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "nx": "18.3.2",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.7.0",
+    "yargs": "^17.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/calendar-io/calendar-io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/calendar-io/calendar-io/issues"
+  },
+  "homepage": "https://github.com/calendar-io/calendar-io#readme",
+  "author": "Ruomh",
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "../../tsconfig.base"
+  ],
+  "compilerOptions": { 
+    "outDir": "dist",
+    "rootDir": "src",
+    "target": "es2016",
+    "module": "commonjs",
+    "moduleResolution": "node"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/index.ts",
+    "src/**/__tests__"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

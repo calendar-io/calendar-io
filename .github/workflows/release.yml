@@ -1,0 +1,48 @@
+name: Release version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-bump:
+        type: choice
+        description: 'Select the version bump to perform.'
+        required: true
+        default: ''
+        options:
+          - ''
+          - major
+          - minor
+          - patch
+          - premajor
+          - preminor
+          - prepatch
+          - prerelease
+
+jobs:
+  release:
+    name: Release version to GitHub
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Install node, npm, and dependencies
+        uses: ./.github/actions/install
+
+      - name: Configure git
+        run: |
+          git config user.name "$(git log -n 1 --pretty=format:%an)"
+          git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        shell: bash
+
+      - name: Release package version and publish
+        run: npm run release -- --version=${{ inputs.version-bump }} 
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
