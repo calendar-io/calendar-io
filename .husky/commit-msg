@@ -1,0 +1,7 @@
+# .husky/commit-msg script
+
+npx --no -- commitlint --edit
+
+## Uncomment following line to test your script and abort Git command
+
+## exit 1
