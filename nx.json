@@ -44,6 +44,12 @@
         "build"
       ],
       "cache": true
+    },
+    "lint-staged": {
+      "dependsOn": [
+        "build"
+      ],
+      "cache": true
     }
   },
   "plugins": [

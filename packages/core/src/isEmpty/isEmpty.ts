@@ -6,9 +6,9 @@ export type isEmptyProps = string | null;
  * @returns {boolean} Returns `true` if input value is empty, else `false`
  */
 export function isEmpty(input?: isEmptyProps) {
-  if (typeof input === 'undefined' || input === null) {
-    return true;
-  }
+	if (typeof input === 'undefined' || input === null) {
+		return true;
+	}
 
-  return false;
+	return false;
 }

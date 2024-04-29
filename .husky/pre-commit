@@ -1,0 +1,7 @@
+# .husky/pre-commit script
+
+npm run lint-staged
+
+## Uncomment following line to test your script and abort Git command
+
+## exit 1

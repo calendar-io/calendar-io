@@ -17,8 +17,9 @@
   },
   "scripts": {
     "build": "tsc --composite false",
-    "test": "nx jest:test --coverage",
-    "lint": "eslint ./src --fix"
+    "test": "jest --coverage",
+    "lint": "eslint ./src --fix",
+    "lint-staged": "lint-staged"
   },
   "jest-junit": {
     "outputDirectory": "./test-results/unit/",
