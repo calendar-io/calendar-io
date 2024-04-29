@@ -1,30 +1,27 @@
 {
-  "root": "packages/core",
-  "sourceRoot": "packages/core/src",
-  "projectType": "library",
-  "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": [
-      "default",
-      "!{projectRoot}/jest.config.mjs",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)"
-    ],
-    "sharedGlobals": [{ "runtime": "node --version" }]
-  },
-  "targets": {
-    "test": {
-      "outputs": [
-        "{projectRoot}/coverage",
-        "{projectRoot}/test-results"
-      ],
-      "configurations": {
-        "ci": {
-          "ci": true
-        }
-      }
-    },
-    "build": {
-      "outputs": ["{projectRoot}/dist"]
-    }
-  }
+	"root": "packages/core",
+	"sourceRoot": "packages/core/src",
+	"projectType": "library",
+	"namedInputs": {
+		"default": ["{projectRoot}/**/*", "sharedGlobals"],
+		"production": [
+			"default",
+			"!{projectRoot}/*.config.mjs",
+			"!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)"
+		],
+		"sharedGlobals": [{ "runtime": "node --version" }]
+	},
+	"targets": {
+		"test": {
+			"outputs": ["{projectRoot}/coverage", "{projectRoot}/test-results"],
+			"configurations": {
+				"ci": {
+					"ci": true
+				}
+			}
+		},
+		"build": {
+			"outputs": ["{projectRoot}/dist"]
+		}
+	}
 }

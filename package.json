@@ -12,7 +12,7 @@
     "lint": "nx run-many -t lint",
     "lint-staged": "nx run-many -t lint-staged",
     "graph": "nx graph",
-    "clean:build": "rimraf packages/**/dist",
+    "clean:build": "rimraf packages/**/dist && rimraf .nx",
     "clean:install": "rimraf node_modules",
     "release": "node ./scripts/release.js",
     "publish": "node ./scripts/publish.js",
