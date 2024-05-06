@@ -33,7 +33,7 @@
 		"npm": "10.2.4"
 	},
 	"scripts": {
-		"clean": "rimraf dist out-tsc coverage test-results .rollup.cache tsconfig.tsbuildinfo",
+		"clean": "rimraf dist out-tsc coverage test-results .rollup.cache tsconfig.tsbuildinfo node_modules",
 		"dev": "rollup --config --watch",
 		"build": "rollup --config",
 		"build:api": "build-api --tsc tsconfig.lib.json",
@@ -45,6 +45,17 @@
 		"nx:build": "nx build core --verbose",
 		"nx:test": "nx test core --verbose",
 		"nx:lint": "nx lint core --verbose"
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/env",
+				{
+					"loose": true
+				}
+			],
+			"@babel/typescript"
+		]
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
