@@ -12,6 +12,10 @@ node_modules/
 
 # TypeScript cache
 *.tsbuildinfo
+out-tsc
+
+# Rollup cache
+.rollup.cache
 
 # Optional npm cache directory
 .npm

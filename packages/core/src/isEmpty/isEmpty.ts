@@ -1,4 +1,4 @@
-export type isEmptyProps = string | null;
+import { isEmptyProps } from '../types';
 
 /**
  * Checks if `input` is an empty string, object, collection, map, or set.

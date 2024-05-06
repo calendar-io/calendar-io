@@ -24,18 +24,18 @@
   },
   "targetDefaults": {
     "build": {
+      "executor": "nx:run-script",
       "dependsOn": [
         "^build"
       ],
+      "options": {
+        "script": "nx:clean && npm run build"
+      },
       "cache": true
     },
     "test": {
       "dependsOn": [
         "build"
-      ],
-      "inputs": [
-        "default",
-        "^production"
       ],
       "cache": true
     },

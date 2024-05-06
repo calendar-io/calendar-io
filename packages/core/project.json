@@ -1,4 +1,5 @@
 {
+	"name": "core",
 	"root": "packages/core",
 	"sourceRoot": "packages/core/src",
 	"projectType": "library",
@@ -6,22 +7,44 @@
 		"default": ["{projectRoot}/**/*", "sharedGlobals"],
 		"production": [
 			"default",
-			"!{projectRoot}/*.config.mjs",
-			"!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)"
+			"!{projectRoot}/?(*.)config.[jt]s?(x)?(.snap)",
+			"!{projectRoot}/**/?(*.)+config.[mj]s"
 		],
 		"sharedGlobals": [{ "runtime": "node --version" }]
 	},
 	"targets": {
-		"test": {
-			"outputs": ["{projectRoot}/coverage", "{projectRoot}/test-results"],
-			"configurations": {
-				"ci": {
-					"ci": true
-				}
-			}
+		"clean": {
+			"cache": true
+		},
+		"typecheck": {
+			"outputs": ["{projectRoot}/out-tsc"],
+			"dependsOn": ["clean"],
+			"cache": true
+		},
+		"build:api": {
+			"outputs": ["{projectRoot}/tsconfig.tsbuildinfo"],
+			"dependsOn": ["typecheck"],
+			"cache": true
 		},
 		"build": {
-			"outputs": ["{projectRoot}/dist"]
+			"executor": "nx:run-script",
+			"options": {
+				"script": "build && npm run prepack"
+			},
+			"dependsOn": ["build:api"],
+			"outputs": ["{projectRoot}/dist"],
+			"cache": true
+		},
+		"test": {
+			"inputs": ["default", "production", "{projectRoot}/jest.config.mjs"],
+			"dependsOn": ["build"],
+			"outputs": ["{projectRoot}/coverage", "{projectRoot}/test-results"],
+			"cache": true
+		},
+		"lint": {
+			"inputs": ["default", "production", "{projectRoot}/eslint.config.mjs"],
+			"dependsOn": ["build"],
+			"cache": true
 		}
 	}
 }

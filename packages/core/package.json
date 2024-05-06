@@ -1,39 +1,75 @@
 {
-  "name": "@calendar-io/core",
-  "version": "0.4.15",
-  "type": "module",
-  "description": "Calendar IO Javascript core module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.js",
-  "files": [
-    "dist",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md",
-    "tsconfig.json"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsc --composite false",
-    "test": "jest --coverage",
-    "lint": "eslint ./src --fix",
-    "lint-staged": "lint-staged"
-  },
-  "jest-junit": {
-    "outputDirectory": "./test-results/unit/",
-    "outputName": "report.xml"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/calendar-io/calendar-io.git",
-    "directory": "packages/core"
-  },
-  "bugs": {
-    "url": "https://github.com/calendar-io/calendar-io/issues"
-  },
-  "homepage": "https://github.com/calendar-io/calendar-io/packages/core#readme",
-  "author": "Ruomh",
-  "license": "MIT"
+	"name": "@calendar-io/core",
+	"version": "0.0.0",
+	"type": "module",
+	"description": "Calendar IO Javascript core module",
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": "./dist/calendar-io.core.umd.js",
+	"module": "./dist/calendar-io.core.esm.js",
+	"unpkg": "./dist/calendar-io.core.umd.min.js",
+	"types": "./dist/calendar-io.core.d.ts",
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"import": {
+				"types": "./dist/calendar-io.core.d.mts",
+				"default": "./dist/calendar-io.core.mjs"
+			},
+			"types": "./dist/calendar-io.core.d.ts",
+			"module": "./dist/calendar-io.core.esm.js",
+			"default": "./dist/calendar-io.core.umd.js"
+		}
+	},
+	"files": [
+		"dist",
+		"CHANGELOG.md",
+		"LICENSE",
+		"README.md"
+	],
+	"engines": {
+		"node": "21.6.1",
+		"npm": "10.2.4"
+	},
+	"scripts": {
+		"clean": "rimraf dist out-tsc coverage test-results .rollup.cache tsconfig.tsbuildinfo",
+		"dev": "rollup --config --watch",
+		"build": "rollup --config",
+		"build:api": "build-api --tsc tsconfig.lib.json",
+		"test": "jest --coverage",
+		"lint": "eslint ./src --fix",
+		"lint-staged": "lint-staged",
+		"prepack": "compat-exports",
+		"typecheck": "tsc -b",
+		"nx:build": "nx build core --verbose",
+		"nx:test": "nx test core --verbose",
+		"nx:lint": "nx lint core --verbose"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": [
+			"eslint ./src --fix"
+		],
+		"*.{json,js,ts,jsx,tsx,html}": [
+			"prettier ./src --write"
+		]
+	},
+	"jest-junit": {
+		"outputDirectory": "./test-results/unit/",
+		"outputName": "report.xml"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/calendar-io/calendar-io.git",
+		"directory": "packages/core"
+	},
+	"bugs": {
+		"url": "https://github.com/calendar-io/calendar-io/issues"
+	},
+	"homepage": "https://github.com/calendar-io/calendar-io/packages/core#readme",
+	"author": "Ruomh",
+	"license": "MIT",
+	"devDependencies": {
+		"config": "^1.0.0"
+	}
 }

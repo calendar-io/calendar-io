@@ -1,4 +1,3 @@
-import { isEmpty, isEmptyProps } from './isEmpty';
+import { isEmpty } from './isEmpty';
 
 export { isEmpty };
-export type { isEmptyProps };

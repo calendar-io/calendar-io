@@ -4,21 +4,21 @@
     "node": "21.6.1"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "config"
   ],
   "scripts": {
-    "build": "nx run-many -t build",
+    "clean": "rimraf .nx node_modules",
+    "build": "rimraf .nx && nx run-many -t build",
     "test": "nx run-many -t test",
     "lint": "nx run-many -t lint",
     "lint-staged": "nx run-many -t lint-staged",
     "graph": "nx graph",
-    "clean:build": "rimraf packages/**/dist && rimraf .nx",
-    "clean:install": "rimraf node_modules",
+    "prepare": "husky",
     "release": "node ./scripts/release.js",
     "publish": "node ./scripts/publish.js",
     "mock:release": "node ./scripts/release.js --dry-run=true",
-    "mock:publish": "node ./scripts/publish.js --dry-run=true",
-    "prepare": "husky"
+    "mock:publish": "node ./scripts/publish.js --dry-run=true"
   },
   "keywords": [
     "calendar-io",
@@ -30,16 +30,25 @@
     "utilities"
   ],
   "devDependencies": {
+    "@calendar-io/core": "^0.0.1",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@eslint/js": "^9.0.0",
     "@jest/globals": "^29.7.0",
+    "@microsoft/api-extractor": "^7.43.1",
     "@nx/eslint": "^18.3.3",
     "@nx/jest": "^18.3.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@swc-node/register": "^1.9.0",
     "@swc/core": "^1.4.16",
     "@tsconfig/node21": "^21.0.3",
     "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.8",
+    "babel-plugin-annotate-pure-calls": "^0.4.0",
     "eslint": "^8.57.0",
     "globals": "^15.0.0",
     "husky": "^9.0.11",
@@ -49,8 +58,9 @@
     "nx": "18.3.2",
     "prettier": "3.2.5",
     "rimraf": "^5.0.5",
+    "rollup": "^4.17.2",
+    "rollup-plugin-dts": "^6.1.0",
     "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.7.0",
     "yargs": "^17.7.2"

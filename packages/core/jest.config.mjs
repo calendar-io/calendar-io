@@ -10,12 +10,14 @@ export default {
     '!src/index.*',
     '!**/node_modules/**',
     '!**/__tests__/**',
-    '!**/dist/**'
+    '!**/dist/**',
+    '!**/out-tsc/**'
   ],
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: [
     '/node_modules/',
-    '/dist/'
+    '/dist/',
+    '/out-tsc/'
   ],
   coverageProvider: 'v8',
   modulePathIgnorePatterns: [
@@ -23,7 +25,8 @@ export default {
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/dist/'
+    '/dist/',
+    '/out-tsc/'
   ],
   reporters: [ 'default', 'jest-junit' ],
   testResultsProcessor: 'jest-junit',
