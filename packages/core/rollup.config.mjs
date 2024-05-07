@@ -1,4 +1,4 @@
-import { defineRollupConfig } from 'config'
+import { defineRollupConfig } from 'config';
 
 export default defineRollupConfig({
   input: [
