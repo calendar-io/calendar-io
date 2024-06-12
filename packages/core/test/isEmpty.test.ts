@@ -1,4 +1,4 @@
-import { isEmpty } from '../index';
+import { isEmpty } from '../src/index';
 import { describe, test, expect } from '@jest/globals';
 
 describe('src/isEmpty', () => {

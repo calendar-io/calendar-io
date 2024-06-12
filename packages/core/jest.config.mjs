@@ -1,6 +1,5 @@
 /** @type {import('jest').Config} */
 export default {
-  preset: 'ts-jest',
   testEnvironment: 'node',
   verbose: true,
   clearMocks: true,
@@ -8,8 +7,8 @@ export default {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/index.*',
+    '!test/**',
     '!**/node_modules/**',
-    '!**/__tests__/**',
     '!**/dist/**',
     '!**/out-tsc/**'
   ],
@@ -29,5 +28,5 @@ export default {
     '/out-tsc/'
   ],
   reporters: [ 'default', 'jest-junit' ],
-  testResultsProcessor: 'jest-junit',
+  testResultsProcessor: 'jest-junit'
 };
