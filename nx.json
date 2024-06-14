@@ -5,13 +5,10 @@
     "projects": [
       "packages/*"
     ],
-    "releaseTagPattern": "v{version}",
+    "projectsRelationship": "independent",
+    "releaseTagPattern": "@calendar-io/{projectName}@{version}",
     "changelog": {
       "automaticFromRef": true,
-      "workspaceChangelog": {
-        "createRelease": "github",
-        "file": false
-      },
       "projectChangelogs": true
     },
     "version": {

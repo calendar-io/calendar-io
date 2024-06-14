@@ -33,7 +33,7 @@
 		"npm": "10.8.0"
 	},
 	"scripts": {
-		"clean": "rimraf dist out-tsc coverage test-results .rollup.cache tsconfig.tsbuildinfo node_modules",
+		"clean": "rimraf dist out-tsc coverage test-results .rollup.cache node_modules",
 		"dev": "rollup --config --watch",
 		"build": "rollup --config",
 		"build:api": "build-api --tsc tsconfig.lib.json",
@@ -59,10 +59,10 @@
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
-			"eslint ./src --fix"
+			"eslint ./src ./test --fix"
 		],
 		"*.{json,js,ts,jsx,tsx,html}": [
-			"prettier ./src --write"
+			"prettier ./src ./test --write"
 		]
 	},
 	"jest-junit": {
