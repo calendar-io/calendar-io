@@ -1,0 +1,31 @@
+{
+  "6800240673625404639": {
+    "targets": {
+      "jest:test": {
+        "command": "jest",
+        "options": {
+          "cwd": "packages/core"
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests"
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^default",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{projectRoot}/coverage"
+        ]
+      }
+    }
+  }
+}
