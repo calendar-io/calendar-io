@@ -9,10 +9,6 @@
     "releaseTagPattern": "{projectName}@{version}",
     "changelog": {
       "automaticFromRef": true,
-      "workspaceChangelog": {
-        "createRelease": "github",
-        "file": false
-      },
       "projectChangelogs": true
     },
     "version": {
