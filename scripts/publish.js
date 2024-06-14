@@ -27,8 +27,7 @@ const yargs = require('yargs');
         verbose: options.verbose,
         firstRelease: true
       });
-
-      console.info(`Release publish job exit with status code: ${publishStatus}`);
+      
       process.exit(publishStatus);
     } catch (err) {
       console.error(err);
