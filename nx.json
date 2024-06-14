@@ -5,7 +5,8 @@
     "projects": [
       "packages/*"
     ],
-    "releaseTagPattern": "v{version}",
+    "projectsRelationship": "independent",
+    "releaseTagPattern": "{projectName}@{version}",
     "changelog": {
       "automaticFromRef": true,
       "workspaceChangelog": {
