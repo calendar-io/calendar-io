@@ -13,6 +13,11 @@
 		"sharedGlobals": [{ "runtime": "node --version" }]
 	},
 	"targets": {
+		"nx-release-publish": {
+			"options": {
+				"packageRoot": "packages/core"
+			}
+		},
 		"clean": {
 			"cache": true
 		},
