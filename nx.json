@@ -6,7 +6,7 @@
       "packages/*"
     ],
     "projectsRelationship": "independent",
-    "releaseTagPattern": "{projectName}@{version}",
+    "releaseTagPattern": "@calendar-io/{projectName}@{version}",
     "changelog": {
       "automaticFromRef": true,
       "projectChangelogs": true
