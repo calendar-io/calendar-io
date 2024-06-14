@@ -33,7 +33,7 @@ jobs:
         shell: bash
 
       - name: Publish packages to NPM
-        run: npm run publish
+        run: npm run publish --foreground-scripts false
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

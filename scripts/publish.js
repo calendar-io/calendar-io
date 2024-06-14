@@ -29,7 +29,7 @@ const yargs = require('yargs');
       });
 
       console.info(`Release publish job exit with status code: ${publishStatus}`);
-      process.exit(0);
+      process.exit(publishStatus);
     } catch (err) {
       console.error(err);
       process.exit(1);
