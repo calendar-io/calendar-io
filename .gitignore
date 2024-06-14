@@ -50,4 +50,5 @@ test-results
 
 # Nx dependency
 .nx/cache
+.nx/workspace-data
 .nx/installation
